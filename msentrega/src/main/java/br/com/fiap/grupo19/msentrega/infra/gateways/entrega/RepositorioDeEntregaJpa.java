@@ -72,7 +72,7 @@ public class RepositorioDeEntregaJpa implements
 
     @Override
     public Entrega obterUmaEntregaPorID(Long id) {
-        return repository.findById(id).orElseThrow(() -> new NoSuchElementException("Não foi possível encontrar a entrega"))
+        return mapper.toDomain(repository.findById(id).orElseThrow(() -> new NoSuchElementException("Não foi possível encontrar a entrega")));
     }
 
     @Override
